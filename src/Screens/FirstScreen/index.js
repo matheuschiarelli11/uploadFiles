@@ -21,7 +21,7 @@ export default function FirstScreen(){
         }, 1000); 
     
         return () => {
-        clearInterval(interval); 
+            clearInterval(interval); 
         };
     }
 
@@ -33,14 +33,17 @@ export default function FirstScreen(){
 
             setFileName(doc.name);
             setFile(doc);
+            console.log(doc.uri)
         } catch (error) {         
             console.log("Upload cancelled")       
         }
     }
 
-    const uploadFile = async () => {       
-        const storageRef = ref(storage, fileName);
-        uploadBytes(storageRef, file).then(() => {
+    const uploadFile = async () => {     
+        const response = await fetch(file.uri);
+        const blob = await response.blob();  
+        const storageRef = ref(storage, file.name);
+        uploadBytes(storageRef, blob).then(() => {
             refresh();
         }).catch((error) => {
             console.log(error.message);
