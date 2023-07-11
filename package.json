@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "expo": "~48.0.18",
+    "expo-document-picker": "~11.2.2",
     "expo-status-bar": "~1.4.4",
+    "firebase": "^10.0.0",
     "react": "18.2.0",
-    "react-native": "0.71.8"
+    "react-native": "0.71.8",
+    "react-native-document-picker": "^9.0.1",
+    "undefined": "@expo/vector-icons/Ionicons"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
